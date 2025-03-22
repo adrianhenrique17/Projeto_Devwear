@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/devwearball.png";
+import { Link } from "react-router";
 
 //HTML
 
@@ -55,11 +56,10 @@ const Login = () => {
           <div className="mt-4 mb-">
             <button className="btn btn-primary">Acessar</button>
           </div>
-          <div className="signup-link">
-            <p>
-              Registre-se. <a href="#">Aqui</a>
-            </p>
-            {/* registrando na tela de login*/}
+          <div className="mt-3">
+            <span>Registre-se. </span>
+            <Link to={"/register"}>Aqui</Link>
+            {/* registrando na tela de login e Link e a tag do router que leva para as urls escolhidas*/}
           </div>
         </form>
       </div>

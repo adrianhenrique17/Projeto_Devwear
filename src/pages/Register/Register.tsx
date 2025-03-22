@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../../pages/Register/Register.css";
 import logo from "../../assets/devwearball.png";
 import Botao from "../../components/btn";
+import { Link } from "react-router";
 
 //HTML
 
@@ -79,11 +80,10 @@ const Login = () => {
             {/* fiz um componente para reutilizar esse botão :) */}
           </div>
 
-          <div className="signup-link mt-1">
-            <p>
-              Logue. <a href="#">Aqui</a>
-            </p>
-            {/* registrando na tela de login*/}
+          <div className="mt-1">
+            <span>Logue. </span>
+            <Link to={"/"}>Aqui!</Link>
+            {/* registrando na tela de Register e Link e a tag do router que leva para as urls escolhidas*/}
           </div>
         </form>
       </div>
