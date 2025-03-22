@@ -1,0 +1,36 @@
+.row {
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+
+  position: fixed; /* Mantém fixo no centro da tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 3px solid #ccc;
+  border-radius: 0px;
+  width: 600px; /* Largura da caixa */
+  height: 550px; /* Altura igual à largura */
+  text-align: center;
+  margin: auto; /* Centraliza na página */
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.form-signin {
+  width: 400px;
+  padding: 15px;
+}
+
+.Logo {
+  object-fit: cover; /* capa da div */
+  width: 35%;
+  position: relative; /* deixa logo deslocada para cima */
+  top: -10px;
+}
+
+.texto-login {
+  text-align: center;
+}
