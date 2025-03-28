@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "../../pages/Register/Register.css";
 import logo from "../../assets/devwearball.png";
-import Botao from "../../components/btn";
+import Botao from "../../components/Btn/btn";
 import { Link } from "react-router";
 
 //HTML
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -91,6 +91,6 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 //slr
