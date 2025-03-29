@@ -3,7 +3,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Remove as barras de rolagem vertical e horizontal */
   display: flex;
   flex-direction: column;
 }

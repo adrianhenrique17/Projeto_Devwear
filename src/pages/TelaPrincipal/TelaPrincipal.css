@@ -1,0 +1,8 @@
+.Superior-Itens {
+  display: flex;
+}
+
+.Inferior-Itens {
+  display: flex;
+  margin-top: -150px;
+}
