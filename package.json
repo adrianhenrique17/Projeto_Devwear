@@ -15,6 +15,7 @@
     "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "keen-slider": "^6.8.6",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
     "mdb-react-ui-kit": "^9.0.0",

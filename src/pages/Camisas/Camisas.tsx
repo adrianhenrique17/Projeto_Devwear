@@ -1,11 +1,9 @@
-import "./TelaPrincipal.css";
-import React from "react";
-import NavBar from "../../components/Navbar/NavBar";
-import BarraInferior from "../../components/Footer/BarraInferior";
+import "./Camisas.css";
+import Navbar from "../../components/Navbar/NavBar";
+import Footer from "../../components/Footer/BarraInferior";
 import ProductCard from "../../components/products/ProductCard";
-import Autoplay from "../../components/Autoplay/Autoplay";
 
-//import de camisas
+//importando camisas
 import camisaBD from "../../assets/Camisas/CamisaBD.png";
 import camisaBios from "../../assets/Camisas/CamisaBios.png";
 import camisaCommit from "../../assets/Camisas/CamisaCommit.png";
@@ -13,14 +11,14 @@ import camisaComputaria from "../../assets/Camisas/CamisaComputaria.png";
 import camisaUpdate from "../../assets/Camisas/CamisaUpdate.png";
 import camisaVariaveis from "../../assets/Camisas/CamisaVariaveis.png";
 
-const TelaPrincipal = () => {
+const Camisas = () => {
   return (
     <div>
-      <Autoplay />
-      <h1 className="text-superior">Bem-Vindos a DevWear</h1>
-      <h2 className="text-superior2">Melhores camisetas para os Devs</h2>
-      <NavBar />
-      <div className="Superior-Itens">
+      <div>
+        <h1 className="text-principal">Todas as Camisetas da Loja</h1>
+      </div>
+      <Navbar />
+      <div className="camisetas-cima">
         <ProductCard
           image={camisaBD}
           title="Camisa Devwear Banco de dados"
@@ -29,9 +27,18 @@ const TelaPrincipal = () => {
         />
         <ProductCard
           image={camisaBios}
-          title="Camisa Devwear Bios"
+          title="Camisa Devwear  Problema Bios"
           description="Camisa Original DevWear."
           price="R$60,00"
+        />
+      </div>
+
+      <div className="camisetas-meio">
+        <ProductCard
+          image={camisaComputaria}
+          title="Camisa Devwear Computaria"
+          description="Camisa nova da coleção"
+          price="R$90,00"
         />
         <ProductCard
           image={camisaCommit}
@@ -41,13 +48,7 @@ const TelaPrincipal = () => {
         />
       </div>
 
-      <div className="Inferior-Itens">
-        <ProductCard
-          image={camisaComputaria}
-          title="Camisa Devwear Computaria"
-          description="Camisa nova da coleção"
-          price="R$90,00"
-        />
+      <div className="camisetas-baixo">
         <ProductCard
           image={camisaUpdate}
           title="Camisa Devwear Update s/ where"
@@ -62,9 +63,9 @@ const TelaPrincipal = () => {
         />
       </div>
 
-      <BarraInferior />
+      <Footer />
     </div>
   );
 };
 
-export default TelaPrincipal;
+export default Camisas;
