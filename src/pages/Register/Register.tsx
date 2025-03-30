@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../pages/Register/Register.css";
-import logo from "../../assets/devwearball.png";
+import logo2 from "../../assets/devwearball.png";
 import Botao from "../../components/Btn/btn";
 import { Link } from "react-router";
 
@@ -21,21 +21,18 @@ const Register = () => {
   };
 
   return (
-    <div className="row">
+    <div className="row2">
       <div className="d-flex justify-content-center align-items-center text-center">
         {/* formatação com bootstrap */}
         {/*col deixa em colunas o componente para ser mais responsivel */}
-        <form onSubmit={handleSubmit} className="form-signin">
-          <img src={logo} className="Logo" />
-          <h6 className="mb-5">
+        <form onSubmit={handleSubmit} className="form-signin2">
+          <img src={logo2} className="Logo2" />
+          <h6 className="mb-7">
             <p>
               <strong>{"<DevWear/>"}</strong>
             </p>
-            <p className="texto-login">
-              {"Debugue seu estilo, compile sua identidade!"}
-            </p>
           </h6>
-          <h4 className="mb-3 text-secondary">Registre sua conta aqui!</h4>
+          <h6 className="mb-3 text-secondary">Registre sua conta aqui!</h6>
           {/* secondary deixa o texto cinza*/}
           <div className="mt-3">
             {/* e.target.value Envia os dados para variavel */}

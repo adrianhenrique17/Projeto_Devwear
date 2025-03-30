@@ -1,4 +1,4 @@
-.row {
+.row2 {
   background: white;
   display: flex;
   justify-content: center;
@@ -12,26 +12,26 @@
 
   border: 3px solid #ccc;
   border-radius: 0px;
-  width: 600px; /* Largura da caixa */
-  height: 590px; /* Altura igual à largura */
+  width: 420px; /* Largura da caixa */
+  height: 490px; /* Altura igual à largura */
   text-align: center;
   margin: auto; /* Centraliza na página */
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-.form-signin {
-  width: 400px;
-  padding: 15px;
+.form-signin2 {
+  width: 300px;
+  padding: 10px;
 }
 
-.Logo {
+.Logo2 {
   object-fit: cover; /* capa da div */
   width: 35%;
   position: relative; /* deixa logo deslocada para cima */
-  top: -10px;
+  top: -6px;
 }
 
-.texto-login {
+.texto-login2 {
   text-align: center;
 }
 
