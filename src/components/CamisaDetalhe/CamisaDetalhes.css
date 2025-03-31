@@ -1,0 +1,53 @@
+.camisa-detalhes-container {
+  max-width: 600px;
+  margin: 40px auto;
+  justify-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.camisa-imagem {
+  border-radius: 10px;
+  box-shadow: -2px 1px 1px 3px #1454f5;
+  margin-right: 300px;
+  width: 100%;
+  max-width: 290px;
+  border-radius: 30px;
+  margin-bottom: 50px;
+}
+
+.camisa-preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.caminho-text {
+  position: absolute; /* deixa ele livre*/
+  margin-top: -380px;
+  margin-left: 360px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.descricao-compra-text {
+  position: absolute; /* deixa ele livre*/
+  margin-top: -330px;
+  margin-left: 305px;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+p {
+  white-space: pre-line; /* quebra a linha da descrição*/
+}
+
+.ProductSelector {
+  position: absolute; /* deixa ele livre*/
+  margin-top: -250px;
+  margin-left: 350px;
+}
