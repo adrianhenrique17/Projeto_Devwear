@@ -1,6 +1,7 @@
 .camisa-detalhes-container {
   max-width: 600px;
   margin: 40px auto;
+  justify-content: center;
   justify-items: center;
   padding: 20px;
   border-radius: 10px;
@@ -50,4 +51,13 @@ p {
   position: absolute; /* deixa ele livre*/
   margin-top: -250px;
   margin-left: 350px;
+}
+
+.camisa-notfound {
+  margin-top: 200px;
+}
+
+.img-notfound {
+  width: 1300px;
+  height: 900px;
 }

@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           className="product-button"
           onClick={() => navigate(`/compra/${id}`)}
         >
-          Compre
+          Ver mais
         </button>
         <button className="product-button">carrinho</button>
       </div>

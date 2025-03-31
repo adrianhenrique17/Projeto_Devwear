@@ -1,6 +1,6 @@
 import "./CamisaDetalhes.css";
 import { useParams } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import ProductSizeSelector from "../../components/ProductSelector/ProductSizeSelector"; //importando um componente em um componente rsrs
 //import camisas
 import camisaBD from "../../assets/Camisas/CamisaBD.png";
@@ -9,6 +9,18 @@ import camisaCommit from "../../assets/Camisas/CamisaCommit.png";
 import camisaComputaria from "../../assets/Camisas/CamisaComputaria.png";
 import camisaUpdate from "../../assets/Camisas/CamisaUpdate.png";
 import camisaVariaveis from "../../assets/Camisas/CamisaVariaveis.png";
+
+//NOTFOUND
+import notfound from "../../assets/NOTFOUND/post_thumbnail-77d8f2a95f2f41b5863f3fba5a261d7e.jpeg";
+
+// funçãozinha pog para sempre que abrir os detalhes ele jogar a tela para cima
+const ScrollToTop: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null; // Esse componente não renderiza nada
+};
 
 const camisas = [
   {
@@ -45,11 +57,12 @@ const CamisaDetalhes: React.FC<CamisaDetalhesProps> = ({ id }) => {
   const camisa = camisas.find((e) => e.id === (id || urlId)); //busca por id
 
   if (!camisa) {
-    return <h2>Camisa não encontrada!</h2>;
+    return <img src={notfound} className="img-notfound" />;
   }
 
   return (
     <div className="camisa-detalhes-container">
+      <ScrollToTop />
       <img src={camisa.foto} alt={camisa.nome} className="camisa-imagem" />
       <h1>{camisa.nome}</h1>
       <p className="caminho-text">/TelaPrincipal/camisetas/{id}</p>

@@ -22,18 +22,21 @@ const TelaPrincipal = () => {
       <NavBar />
       <div className="Superior-Itens">
         <ProductCard
+          id={"1"}
           image={camisaBD}
           title="Camisa Devwear Banco de dados"
           description="Camisa nova da coleção."
           price="R$ 50,00"
         />
         <ProductCard
+          id={"2"}
           image={camisaBios}
           title="Camisa Devwear Bios"
           description="Camisa Original DevWear."
           price="R$60,00"
         />
         <ProductCard
+          id={"3"}
           image={camisaCommit}
           title="Camisa Devwear Commit"
           description="Camisa nova da coleção."
@@ -43,18 +46,21 @@ const TelaPrincipal = () => {
 
       <div className="Inferior-Itens">
         <ProductCard
+          id={"4"}
           image={camisaComputaria}
           title="Camisa Devwear Computaria"
           description="Camisa nova da coleção"
           price="R$90,00"
         />
         <ProductCard
+          id={"5"}
           image={camisaUpdate}
           title="Camisa Devwear Update s/ where"
           description="Camisa nova da coleção"
           price="R$60,00"
         />
         <ProductCard
+          id="6"
           image={camisaVariaveis}
           title="Camisa Devwear Variaveis"
           description="Camisa Original DevWear."
