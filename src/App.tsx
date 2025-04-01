@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
+import React from "react";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import TelaPrincipal from "./pages/TelaPrincipal/TelaPrincipal";

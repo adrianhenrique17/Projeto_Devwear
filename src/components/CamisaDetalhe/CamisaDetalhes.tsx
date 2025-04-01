@@ -27,7 +27,7 @@ const camisas = [
     id: "1",
     foto: camisaBD,
     nome: "Camisa Banco de Dados",
-    preco: 99.99,
+    preco: 50.0,
     descricao:
       "Camisa Estilosa feita para você DEV T-shirt masculina.\nesta peça foi meticulosamente desenhada para você. \n 100% Algodão, Malha penteada fio 30.1 alta qualidade \n Modelagem com caimento reto proporcional",
   },
@@ -35,16 +35,45 @@ const camisas = [
     id: "2",
     foto: camisaBios, //puxa o import e manda para a tela camisas referente ao id da camisa
     nome: "Camisa Problema de Bios",
-    preco: 89.99,
-    descricao: "camisa azul",
+    preco: 60.0,
+    descricao:
+      "Camisa Estilosa feita para você DEV T-shirt masculina.\nesta peça foi meticulosamente desenhada para você. \n 100% Algodão, Malha penteada fio 30.1 alta qualidade \n Modelagem com caimento reto proporcional",
   },
 
   {
     id: "3",
+    foto: camisaCommit,
+    nome: "Camisa Commit",
+    preco: 70.0,
+    descricao:
+      "Camisa Estilosa feita para você DEV T-shirt masculina.\nesta peça foi meticulosamente desenhada para você. \n 100% Algodão, Malha penteada fio 30.1 alta qualidade \n Modelagem com caimento reto proporcional",
+  },
+
+  {
+    id: "4",
     foto: camisaComputaria,
     nome: "Camisa Computaria",
-    preco: 79.99,
-    descricao: "camisa verde",
+    preco: 90.0,
+    descricao:
+      "Camisa Estilosa feita para você DEV T-shirt masculina.\nesta peça foi meticulosamente desenhada para você. \n 100% Algodão, Malha penteada fio 30.1 alta qualidade \n Modelagem com caimento reto proporcional",
+  },
+
+  {
+    id: "5",
+    foto: camisaUpdate,
+    nome: "Camisa Update s/ where",
+    preco: 60.0,
+    descricao:
+      "Camisa Estilosa feita para você DEV T-shirt masculina.\nesta peça foi meticulosamente desenhada para você. \n 100% Algodão, Malha penteada fio 30.1 alta qualidade \n Modelagem com caimento reto proporcional",
+  },
+
+  {
+    id: "6",
+    foto: camisaVariaveis,
+    nome: "Camisa Variaveis",
+    preco: 60.0,
+    descricao:
+      "Camisa Estilosa feita para você DEV T-shirt masculina.\nesta peça foi meticulosamente desenhada para você. \n 100% Algodão, Malha penteada fio 30.1 alta qualidade \n Modelagem com caimento reto proporcional",
   },
 ];
 
@@ -64,7 +93,7 @@ const CamisaDetalhes: React.FC<CamisaDetalhesProps> = ({ id }) => {
     <div className="camisa-detalhes-container">
       <ScrollToTop />
       <img src={camisa.foto} alt={camisa.nome} className="camisa-imagem" />
-      <h1>{camisa.nome}</h1>
+      <h1 className="nome-camisa">{camisa.nome}</h1>
       <p className="caminho-text">/TelaPrincipal/camisetas/{id}</p>
       <p className="descricao-compra-text">{camisa.descricao}</p>
       <div className="ProductSelector">

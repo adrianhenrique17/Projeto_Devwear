@@ -35,7 +35,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
         >
           Ver mais
         </button>
-        <button className="product-button">carrinho</button>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import Logo from "../../assets/logo120x120.png";
-import { FaShoppingCart } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 
 const Navbar: React.FC = () => {
@@ -25,11 +24,6 @@ const Navbar: React.FC = () => {
           <a href="#">Contato</a>
         </li>
         <div className={styles.rightIcons}>
-          <li>
-            <a href="#">
-              <FaShoppingCart />
-            </a>
-          </li>
           <li>
             <a href="#">
               <VscAccount />
