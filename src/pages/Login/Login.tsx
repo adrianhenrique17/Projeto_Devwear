@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/devwearball.png";
 import { Link } from "react-router-dom"; // Corrigindo importação do Link
+import axios from "axios";
 
 //html
 
@@ -10,6 +11,24 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const ExecuteLogin = async () => {
+    try {
+      const response = await axios.post("http://localhost:3000/api/login", {
+        email,
+        password,
+      });
+      if (response.data) {
+        console.log("Login bem-sucedido!");
+
+        // Armazena o token no localStorage
+        localStorage.setItem("token", response.data.token);
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
+  };
   //regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -23,8 +42,8 @@ const Login = () => {
     }
 
     setError(""); // Limpa a mensagem de erro se a validação passar
-    console.log(email, password);
     console.log("Envio bem-sucedido!");
+    ExecuteLogin(); // Chama a função para executar o login
   };
 
   return (

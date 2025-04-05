@@ -7,7 +7,12 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <img src={Logo} alt="logo" />
+        <img
+          src={Logo}
+          alt="logo"
+          onClick={() => (window.location.href = "/TelaPrincipal")}
+        />
+        {/* função para clicar logo e ir home*/}
       </div>
 
       <ul className={styles.navLinks}>
