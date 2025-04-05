@@ -1,0 +1,38 @@
+.editar-perfil-text {
+  text-align: center;
+  margin-top: 75px;
+  font-weight: 200;
+}
+
+.container-editar h1 {
+  padding: 20px; /* Espaçamento interno da div */
+  line-height: 0; /* Espaçamento entre linhas */
+  font-size: 1.8; /* Tamanho da fonte */
+  font-weight: 350;
+  font-size: 20px;
+}
+
+.cpf-input {
+  margin-left: 10px;
+  align-items: center;
+}
+
+.senha-input {
+  margin-left: 10px;
+  align-items: center;
+}
+
+.conf-senha-input {
+  margin-left: 10px;
+  align-items: center;
+}
+
+.btn-editar {
+  margin-left: 25px;
+  height: 30px;
+}
+
+.name-cpf-input {
+  margin-left: 10px;
+  align-items: center;
+}

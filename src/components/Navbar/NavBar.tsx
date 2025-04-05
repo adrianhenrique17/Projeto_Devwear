@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import Logo from "../../assets/logo120x120.png";
-import { VscAccount } from "react-icons/vsc";
+import ButtonDrop from "../MenuSupenso/MenuSuspenso";
 
 const Navbar: React.FC = () => {
   return (
@@ -23,14 +23,10 @@ const Navbar: React.FC = () => {
         <li>
           <a href="#">Contato</a>
         </li>
-        <div className={styles.rightIcons}>
-          <li>
-            <a href="#">
-              <VscAccount />
-            </a>
-          </li>
-        </div>
       </ul>
+      <div className={styles.rightIcons}>
+        <ButtonDrop />
+      </div>
     </nav>
   );
 };

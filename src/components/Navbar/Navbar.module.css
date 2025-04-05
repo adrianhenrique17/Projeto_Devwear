@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   background-color: #1454f5;
   padding: 8px 20px;
@@ -31,7 +31,7 @@
   gap: 50px;
   position: relative;
   right: -50px; /* mover as letras para direira */
-  top: 5px; /* mover as letras para baixo */
+  top: 8px; /* mover as letras para baixo */
   font-family: "Inter";
   font-weight: 2; /* grossura da font */
   flex-grow: 2; /* prop do flexbox , o elemento cresce para ocupar o espaco dispo.  */
@@ -65,8 +65,10 @@
 }
 
 .rightIcons {
-  margin-left: 45%;
+  margin-left: 40%;
   display: flex;
   gap: 20px;
   align-items: end;
+  visibility: visible; /* Garante que o elemento esteja sempre visível */
+  opacity: 1; /* Remove qualquer opacidade que possa estar escondendo o elemento */
 }

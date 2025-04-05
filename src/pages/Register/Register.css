@@ -8,15 +8,17 @@
   position: fixed; /* Mantém fixo no centro da tela */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.7); /* 0.7 aumenta em geral a div */
 
   border: 3px solid #ccc;
   border-radius: 0px;
-  width: 420px; /* Largura da caixa */
-  height: 490px; /* Altura igual à largura */
+  width: 600px;
+  height: auto;
+  min-height: 520px;
   text-align: center;
   margin: auto; /* Centraliza na página */
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  padding: 20px 0; /* Adiciona espaço interno para os erros */
 }
 
 .form-signin2 {
@@ -26,7 +28,7 @@
 
 .Logo2 {
   object-fit: cover; /* capa da div */
-  width: 35%;
+  width: 50%;
   position: relative; /* deixa logo deslocada para cima */
   top: -6px;
 }
@@ -38,4 +40,21 @@
 .btncss {
   position: relative; /* fica livre para se movimentar no elemento pai*/
   top: -10px;
+  margin-top: 15px; /* Adiciona espaço acima do botão */
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.mt-3 {
+  margin-bottom: 0.5rem; /* Adiciona espaço abaixo de cada campo */
 }

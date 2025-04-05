@@ -6,7 +6,8 @@ import TelaPrincipal from "./pages/TelaPrincipal/TelaPrincipal";
 import Camisas from "./pages/TelaCamisas/Camisas";
 import Sobre from "./pages/TelaSobre/Sobre";
 import Contato from "./pages/TelaContato/Contato";
-import Compra from "../src/pages/TelaCompra/Compra";
+import Compra from "./pages/TelaCompra/Compra";
+import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
 
 //defini as rotas do nosso projeto
 // o main está renderizando tudo, pois esta no topo do dom
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Sobre" element={<Sobre />} />
         <Route path="/Contato" element={<Contato />} />
         <Route path="/Compra/:id" element={<Compra />} />
+        <Route path="/EditarPerfil" element={<EditarPerfil />} />
       </Routes>
     </BrowserRouter>
   );
