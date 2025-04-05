@@ -1,0 +1,83 @@
+/* EFEITOS DE TEXTO -  
+
+
+text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+
+
+text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de,
+    0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+    
+text-shadow: 0px 2px 3px #661;
+  
+text-shadow: 2px -2px 0 rgba(17, 0, 255, 0.795);
+    
+    */
+
+.camisa-detalhes-container {
+  max-width: 600px;
+  margin: 40px auto;
+  justify-content: center;
+  justify-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.camisa-imagem {
+  border-radius: 10px;
+  box-shadow: -2px 1px 1px 3px #1454f5;
+  margin-right: 300px;
+  width: 100%;
+  max-width: 290px;
+  border-radius: 30px;
+  margin-bottom: 50px;
+}
+
+.camisa-preco {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.caminho-text {
+  position: absolute; /* deixa ele livre*/
+  margin-top: -380px;
+  margin-left: 360px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.descricao-compra-text {
+  position: absolute; /* deixa ele livre*/
+  margin-top: -330px;
+  margin-left: 305px;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+p {
+  white-space: pre-line; /* quebra a linha da descrição*/
+}
+
+.ProductSelector {
+  position: absolute; /* deixa ele livre*/
+  margin-top: -250px;
+  margin-left: 350px;
+}
+
+.camisa-notfound {
+  margin-top: 200px;
+}
+
+.img-notfound {
+  width: 1300px;
+  height: 900px;
+}
+
+.nome-camisa {
+  font-style: italic;
+  text-shadow: 0px 2px 3px rgb(4, 0, 255);
+}

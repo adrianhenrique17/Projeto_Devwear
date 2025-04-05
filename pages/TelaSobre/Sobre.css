@@ -1,0 +1,58 @@
+.sobre-text {
+  margin-top: 100px;
+  text-align: justify;
+  font-size: 40px;
+  font-weight: 300;
+  padding: 20px;
+  font-style: italic;
+}
+
+.descricao-text {
+  margin-top: 10px;
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 20px;
+  font-style: bold;
+}
+
+.descricao-meio-text {
+  margin-top: 10px;
+  text-align: justify;
+  font-size: 40px;
+  font-weight: 300;
+  padding: 20px;
+  font-style: italic;
+}
+
+.descicao-resposta-text {
+  margin-top: 10px;
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 20px;
+  font-style: italic;
+}
+
+.Fundadores-text {
+  margin-top: 20px;
+  text-align: justify;
+  font-size: 40px;
+  font-weight: 300;
+  padding: 20px;
+  font-style: italic;
+}
+
+.fundadores {
+  display: flex;
+}
+.fundador-adrian {
+  height: 500px;
+  text-align: center;
+  margin-left: 200px;
+}
+.fundador-eduardo {
+  height: 500px;
+  text-align: center;
+  margin-left: 150px;
+}

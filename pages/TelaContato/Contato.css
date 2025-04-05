@@ -1,0 +1,29 @@
+.text-principal-contact {
+  margin-top: 100px;
+  text-align: justify;
+  font-size: 40px;
+  font-weight: 300;
+  padding: 20px;
+  font-style: bold;
+}
+
+.text-contatos {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 150;
+  padding: 20px;
+  font-style: bold;
+}
+
+.feedback {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 20px;
+  font-style: bold;
+}
+
+.form-item {
+  margin-top: -260px;
+  margin-left: 300px;
+}
