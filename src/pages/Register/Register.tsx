@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../pages/Register/Register.css";
 import logo2 from "../../assets/devwearball.png";
-import Botao from "../../components/Btn/btn";
 import { Link } from "react-router-dom";
+import api from "../../api/api";
+import InputMask from "react-input-mask"; // lib de Cpf
 
-// Interface para os erros de validação - ATUALIZADA com confirmPassword
 interface FormErrors {
   name?: string;
   email?: string;
@@ -14,41 +15,37 @@ interface FormErrors {
 }
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: "", // NOVO CAMPO
+    confirmPassword: "",
     cpf: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [error, setError] = useState("");
 
-  // Função para validar CPF
   const validateCPF = (cpf: string): boolean => {
-    // Implementação básica - você pode usar uma lib ou implementação mais completa
-    return cpf.length === 11 || cpf.length === 14; // 11 dígitos ou 14 com formatação
+    const cleanedCPF = cpf.replace(/\D/g, "");
+    return cleanedCPF.length === 11;
   };
 
-  // Função para validar email
   const validateEmail = (email: string): boolean => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
-  // Função para validar senha (mínimo 8 caracteres)
   const validatePassword = (password: string): boolean => {
     return password.length >= 8;
   };
 
-  // Validação geral do formulário - ATUALIZADA com confirmação de senha
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Nome é obrigatório";
-    }
-
+    if (!formData.name.trim()) newErrors.name = "Nome é obrigatório";
     if (!formData.email.trim()) {
       newErrors.email = "E-mail é obrigatório";
     } else if (!validateEmail(formData.email)) {
@@ -61,7 +58,6 @@ const Register = () => {
       newErrors.password = "Senha deve ter pelo menos 8 caracteres";
     }
 
-    // NOVA VALIDAÇÃO: Confirmação de senha
     if (!formData.confirmPassword) {
       newErrors.confirmPassword = "Confirme sua senha";
     } else if (formData.password !== formData.confirmPassword) {
@@ -86,12 +82,50 @@ const Register = () => {
     });
   };
 
+  const ExecuteRegister = async () => {
+    try {
+      const { name, email, password, cpf } = formData;
+
+      const response = await api.post("/api/users", {
+        name,
+        email,
+        password,
+        cpf,
+      });
+
+      if (response.data && response.status === 201) {
+        console.log("Registro bem-sucedido!");
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          cpf: "",
+        });
+        navigate("/"); // Redireciona para a tela de login
+      } else {
+        setError(response.data.error || "Erro desconhecido no registro");
+      }
+    } catch (error: unknown) {
+      console.error("Erro ao registrar:", error);
+      if (
+        error instanceof Error &&
+        (error as import("axios").AxiosError).response
+      ) {
+        console.error(
+          "Erro do backend:",
+          (error as import("axios").AxiosError).response?.data
+        );
+      }
+      setError("Erro ao conectar ao servidor. Tente novamente mais tarde.");
+    }
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (validateForm()) {
-      console.log("Dados válidos:", formData);
-      // Aqui você faria a chamada para a API de registro
+      ExecuteRegister();
     } else {
       console.log("Formulário inválido", errors);
     }
@@ -100,6 +134,7 @@ const Register = () => {
   return (
     <div className="row2">
       <div className="d-flex justify-content-center align-items-center text-center">
+        {error && <div className="alert alert-danger">{error}</div>}
         <form onSubmit={handleSubmit} className="form-signin2">
           <img src={logo2} className="Logo2" alt="Logo DevWear" />
           <h6 className="mb-7">
@@ -166,7 +201,7 @@ const Register = () => {
             )}
           </div>
 
-          {/* Campo Confirmação de Senha - ATUALIZADO com name="confirmPassword" */}
+          {/* Campo Confirmação de Senha */}
           <div className="mt-3">
             <input
               type="password"
@@ -185,18 +220,25 @@ const Register = () => {
             )}
           </div>
 
-          {/* Campo CPF */}
+          {/* Campo CPF com Máscara */}
           <div className="mt-3">
-            <input
-              type="text"
-              name="cpf"
-              placeholder="CPF (somente números)"
+            <InputMask
+              mask="999.999.999-99" // Máscara para CPF
               value={formData.cpf}
               onChange={handleChange}
-              className={`form-control bg-secondary bg-opacity-25 text-dark ${
-                errors.cpf ? "is-invalid" : ""
-              }`}
-            />
+            >
+              {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
+                <input
+                  {...inputProps}
+                  type="text"
+                  name="cpf"
+                  placeholder="CPF (xxx.xxx.xxx-xx)"
+                  className={`form-control bg-secondary bg-opacity-25 text-dark ${
+                    errors.cpf ? "is-invalid" : ""
+                  }`}
+                />
+              )}
+            </InputMask>
             {errors.cpf && (
               <div className="invalid-feedback d-block text-start">
                 {errors.cpf}
@@ -204,9 +246,10 @@ const Register = () => {
             )}
           </div>
 
-          <div className="btncss">
-            <Botao texto="Registrar" />
-            {/* fiz um componente para reutilizar esse botão :) */}
+          <div className="mt-4">
+            <button type="submit" className="btn btn-primary w-100">
+              Registrar
+            </button>
           </div>
 
           <div className="mt-1">

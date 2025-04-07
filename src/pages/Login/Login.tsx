@@ -3,6 +3,7 @@ import "./Login.css";
 import logo from "../../assets/devwearball.png";
 import { Link } from "react-router-dom"; // Corrigindo importação do Link
 import axios from "axios";
+import api from "../../api/api"; // Corrigindo importação do axios
 
 //html
 
@@ -13,20 +14,31 @@ const Login = () => {
 
   const ExecuteLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/api/login", {
+      const response = await api.post("/api/login", {
         email,
         password,
       });
-      if (response.data) {
+      if (response.data.success) {
         console.log("Login bem-sucedido!");
-
         // Armazena o token no localStorage
         localStorage.setItem("token", response.data.token);
+        window.location.href = "/TelaPrincipal"; // Redireciona para a tela principal
       } else {
-        console.log(response);
+        setError(response.data.error || "erro desconhecido no login ");
       }
+
+      //tratativa de erro da api
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          setError(error.response.data.error || "Erro desconhecido no login");
+        } else {
+          window.alert("Não foi possível conectar ao servidor");
+        }
+      } else {
+        console.error("Erro ao fazer login:", error);
+        setError("Ocorreu um erro inesperado");
+      }
     }
   };
   //regex
