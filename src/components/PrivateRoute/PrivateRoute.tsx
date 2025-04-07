@@ -7,9 +7,12 @@ interface Props {
 }
 
 const PrivateRoute = ({ children }: Props) => {
-  const { isAuthenticated } = useAuth();
+  // PrivateRoute.tsx
+  const { isAuthenticated, token } = useAuth();
 
-  return isAuthenticated ? children : <Navigate to="/" />;
+  // Verificação mais robusta
+  const isAuth = isAuthenticated && token !== null;
+  return isAuth ? children : <Navigate to="/" />;
 };
 
 export default PrivateRoute;

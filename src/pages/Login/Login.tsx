@@ -21,7 +21,7 @@ const Login = () => {
       if (response.data.success) {
         console.log("Login bem-sucedido!");
         // Armazena o token no localStorage
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("authToken", response.data.token);
         window.location.href = "/TelaPrincipal"; // Redireciona para a tela principal
       } else {
         setError(response.data.error || "erro desconhecido no login ");
