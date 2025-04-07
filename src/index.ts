@@ -9,7 +9,19 @@ import "dotenv/config";
 //server
 
 const app = express();
+const cors = require("cors");
 const port = 3000;
+
+/* o cors não deixa o navegador bloquear o front de acessar o back, 
+ai vc fala qual dominio ta tentando acessar e ele permite */
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json()); //middlware
 app.use("/api", userRoutes);
