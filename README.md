@@ -7,6 +7,17 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Alterações na tela de compra que agora puxam as informações do backend
+
+
+Tela antes
+<img width="772" alt="camisa detalhes old" src="https://github.com/user-attachments/assets/74d23517-f050-4dab-98b1-78690256038e" /> 
+
+
+Tela depois 
+<img width="821" alt="tela camisa detalhes new" src="https://github.com/user-attachments/assets/30ac2338-a246-4aa0-bc75-a2d3b2ea5737" />
+
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
