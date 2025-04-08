@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+//permite qualquer componente acessar os dados do contexto de autenticação
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) throw new Error("useAuth precisa estar dentro do AuthProvider");

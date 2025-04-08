@@ -94,6 +94,7 @@ const Register = () => {
       });
 
       if (response.data && response.status === 201) {
+        window.alert("Registro bem-sucedido!");
         console.log("Registro bem-sucedido!");
         setFormData({
           name: "",
@@ -144,7 +145,6 @@ const Register = () => {
           </h6>
           <h6 className="mb-3 text-secondary">Registre sua conta aqui!</h6>
 
-          {/* Campo Nome */}
           <div className="mt-3">
             <input
               type="text"
@@ -163,7 +163,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Campo Email */}
           <div className="mt-3">
             <input
               type="email"
@@ -182,7 +181,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Campo Senha */}
           <div className="mt-3">
             <input
               type="password"
@@ -201,7 +199,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Campo Confirmação de Senha */}
           <div className="mt-3">
             <input
               type="password"
@@ -220,10 +217,9 @@ const Register = () => {
             )}
           </div>
 
-          {/* Campo CPF com Máscara */}
           <div className="mt-3">
             <InputMask
-              mask="999.999.999-99" // Máscara para CPF
+              mask="999.999.999-99"
               value={formData.cpf}
               onChange={handleChange}
             >

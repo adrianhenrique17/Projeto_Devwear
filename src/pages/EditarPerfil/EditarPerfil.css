@@ -5,9 +5,9 @@
 }
 
 .container-editar h1 {
-  padding: 20px; /* Espaçamento interno da div */
+  padding: 20px;
   line-height: 0; /* Espaçamento entre linhas */
-  font-size: 1.8; /* Tamanho da fonte */
+  font-size: 1.8;
   font-weight: 350;
   font-size: 20px;
 }
@@ -35,4 +35,9 @@
 .name-cpf-input {
   margin-left: 10px;
   align-items: center;
+}
+
+.cpf-validation {
+  font-weight: 300;
+  font-size: 15px;
 }

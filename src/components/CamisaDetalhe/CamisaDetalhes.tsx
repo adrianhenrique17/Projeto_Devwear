@@ -16,7 +16,7 @@ interface Camisa {
   id: string;
   nome: string;
   descricao: string;
-  preco: number; // Agora é um número
+  preco: number; 
   imagem_url: string; //puxando as imagem via nuvem cloudinary
 }
 
@@ -25,16 +25,17 @@ const CamisaDetalhes: React.FC = () => {
   const [camisa, setCamisa] = useState<Camisa | null>(null);
   const [erro, setErro] = useState(false);
 
+  //conexão com o back
   useEffect(() => {
     const fetchCamisa = async () => {
       try {
         const response = await api.get(`/api/camisas/${id}`);
         console.log("Dados da camisa:", response.data);
 
-        // Converte o preço para número antes de definir no estado
+        
         const camisaComPrecoNumerico = {
           ...response.data,
-          preco: parseFloat(response.data.preco), // Converte para número
+          preco: parseFloat(response.data.preco), 
         };
 
         setCamisa(camisaComPrecoNumerico);

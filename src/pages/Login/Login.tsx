@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/devwearball.png";
-import { Link } from "react-router-dom"; // Corrigindo importação do Link
+import { Link } from "react-router-dom";
 import axios from "axios";
-import api from "../../api/api"; // Corrigindo importação do axios
-
+import api from "../../api/api";
 //html
 
 const Login = () => {
@@ -20,11 +19,15 @@ const Login = () => {
       });
       if (response.data.success) {
         console.log("Login bem-sucedido!");
+
         // Armazena o token no localStorage
         localStorage.setItem("authToken", response.data.token);
-        window.location.href = "/TelaPrincipal"; // Redireciona para a tela principal
-      } else {
-        setError(response.data.error || "erro desconhecido no login ");
+
+        // Armazena o ID do usuário no localStorage
+        localStorage.setItem("userId", response.data.user.id);
+
+        // Redireciona para a tela principal
+        window.location.href = "/TelaPrincipal";
       }
 
       //tratativa de erro da api
@@ -41,7 +44,7 @@ const Login = () => {
       }
     }
   };
-  //regex
+
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -53,9 +56,9 @@ const Login = () => {
       return;
     }
 
-    setError(""); // Limpa a mensagem de erro se a validação passar
+    setError("");
     console.log("Envio bem-sucedido!");
-    ExecuteLogin(); // Chama a função para executar o login
+    ExecuteLogin();
   };
 
   return (
@@ -74,7 +77,6 @@ const Login = () => {
             </p>
           </h6>
           <h4 className="mb-3 text-secondary">Acesse sua conta</h4>
-          {/* secondary deixa o texto cinza*/}
 
           {/* Exibe a mensagem de erro caso o e-mail seja inválido */}
           {error && <span className="text-danger">{error}</span>}

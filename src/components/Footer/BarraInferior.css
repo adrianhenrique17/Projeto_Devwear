@@ -32,18 +32,18 @@ body {
   gap: 30px;
   position: relative;
   text-align: center;
-  top: 5px; /* mover as letras para baixo */
-  font-weight: 3; /* grossura da fonte (use valores como normal, bold ou 100-900) */
+  top: 5px; 
+  font-weight: 3; 
   flex-grow: 2;
-  justify-content: center; /* Centraliza horizontalmente */
+  justify-content: center; 
 }
 
-/* No seu arquivo CSS */
+
 .links a {
   color: rgb(0, 0, 0);
-  text-decoration: none; /* Para remover o sublinhado */
+  text-decoration: none; 
 }
 
 .links a:hover {
-  color: rgb(255, 255, 255); /* Para mudar a cor ao passar o mouse */
+  color: rgb(255, 255, 255); 
 }

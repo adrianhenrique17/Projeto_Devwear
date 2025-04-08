@@ -12,8 +12,8 @@
 
   border: 3px solid #ccc;
   border-radius: 0px;
-  width: 420px; /* Largura da caixa */
-  height: 510px; /* Altura igual à largura */
+  width: 420px; 
+  height: 510px; 
   text-align: center;
   margin: auto; /* Centraliza na página */
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);

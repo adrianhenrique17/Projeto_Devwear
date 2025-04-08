@@ -4,16 +4,15 @@ import "./ProductSizeSelector.css";
 //usando a mesma logica da aula da claudia sobre hooks para aumentar e diminuir
 
 const ProductSizeSelector: React.FC = () => {
-  const [selectedSize, setselectedSize] = useState<string>("P"); //armazena o tamanho e onde ele inicia
-  const [quantity, setQuantity] = useState<number>(1); // armazena quantidade
-
+  const [selectedSize, setselectedSize] = useState<string>("P"); 
+  const [quantity, setQuantity] = useState<number>(1); 
   const sizes = ["P", "M", "G", "GG"];
-  // handlesizechange atualiza o tamanho selecionado
+
   const handleSizeChange = (size: string) => {
     setselectedSize(size);
   };
 
-  //incrementQuantity, não deixam -1
+  
   const incrementQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
