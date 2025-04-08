@@ -4,13 +4,16 @@ import jwt, { SignOptions, JwtPayload } from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
-// Carrega as variáveis de ambiente
+// váriaveis de ambiente
 dotenv.config();
 
 interface IUserTokenPayload extends JwtPayload {
   id: number;
   email: string;
 }
+
+
+// Post no login
 
 class LoginController {
   public login = async (req: Request, res: Response): Promise<Response> => {
@@ -46,7 +49,7 @@ class LoginController {
       if (!user.getDataValue("isActive")) {
         return res.status(403).json({
           success: false,
-          error: "Conta desativada",
+          error: "Conta desativada ou exluída",
         });
       }
 
@@ -97,6 +100,8 @@ class LoginController {
     const options: SignOptions = {
       expiresIn: process.env.JWT_EXPIRES_IN || "8h",
     };
+
+    //Jwt vai ter duração de 8hrs
 
     return jwt.sign(payload, JWT_SECRET, options);
   };

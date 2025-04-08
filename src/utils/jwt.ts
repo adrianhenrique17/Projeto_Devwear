@@ -3,7 +3,7 @@ import UserModel from "../models/UserModel";
 import dotenv from "dotenv";
 dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET || "segredo_bem_secreto";
+const JWT_SECRET = process.env.JWT_SECRET || "YuriPaiDoPeixeEporco";
 const JWT_EXPIRES_IN = "7d";
 
 export const generateToken = (user: UserModel): string => {

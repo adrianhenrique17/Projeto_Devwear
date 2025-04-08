@@ -2,19 +2,18 @@
 
 export const validateCPF = (cpf: string): boolean => {
   if (!cpf || typeof cpf !== "string") {
-    return false; // Retorna falso se o CPF for inválido ou não for uma string
+    return false; 
   }
 
-  cpf = cpf.replace(/[^\d]+/g, ""); // Remove caracteres não numéricos
+  cpf = cpf.replace(/[^\d]+/g, ""); 
 
   if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
-    return false; // Verifica se o CPF tem 11 dígitos e não é uma sequência repetida
+    return false; 
   }
 
   let sum = 0;
   let remainder;
 
-  // Validação do primeiro dígito verificador
   for (let i = 1; i <= 9; i++) {
     sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
   }
@@ -26,7 +25,7 @@ export const validateCPF = (cpf: string): boolean => {
 
   sum = 0;
 
-  // Validação do segundo dígito verificador
+  
   for (let i = 1; i <= 10; i++) {
     sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
   }

@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import UserModel from "../models/UserModel";
 import { SENHA_REGEX } from "../models/UserModel";
-import { validateCPF } from "../utils/validateCPF"; // função para o put de validar cpf
+// A função validateCPF não será utilizada neste fluxo,
+// pois vamos comparar o CPF enviado com o CPF já armazenado.
+// import { validateCPF } from "../utils/validateCPF";
 
-// Define AuthenticatedRequest interface
-// Define AuthenticatedUser interface
+// Define AuthenticatedUser interface (caso for utilizar autenticação posteriormente)
 interface AuthenticatedUser {
   id: number;
   email: string;
@@ -13,12 +14,10 @@ interface AuthenticatedUser {
   isActive: boolean;
 }
 
-// Define AuthenticatedRequest interface
+// Define AuthenticatedRequest interface (caso for utilizar autenticação posteriormente)
 interface AuthenticatedRequest extends Request {
   user?: AuthenticatedUser;
 }
-
-//ULTILIZA - SE PARA REGISTRAR OS USUÁRIOS NO BANCO DE DADOS
 
 // método que busca todos
 export const getAll = async (req: Request, res: Response) => {
@@ -32,7 +31,6 @@ export const getUserById = async (
   res: Response
 ) => {
   const user = await UserModel.findByPk(req.params.id);
-
   return res.json(user);
 };
 
@@ -50,31 +48,18 @@ export const createUser = async (req: Request, res: Response) => {
   } catch (error) {
     res
       .status(500)
-      .json("Erro interno no servidor ou Cpf já existente " + error);
+      .json("Erro interno no servidor ou CPF já existente " + error);
   }
 };
 
 // método que atualiza um usuário
-export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
+export const updateUser = async (
+  req: Request<{ id: string }>,
+  res: Response
+) => {
   try {
     const { id } = req.params;
     const { name, password, cpf } = req.body;
-
-    // Verifica se o usuário está autenticado
-    if (!req.user) {
-      return res.status(401).json({
-        success: false,
-        error: "Não autorizado - usuário não autenticado",
-      });
-    }
-
-    console.log("Usuário logado:", req.user.id);
-
-    // Busca o usuário no banco de dados
-    const user = await UserModel.findByPk(id);
-    if (!user) {
-      return res.status(404).json({ error: "Usuário não encontrado" });
-    }
 
     // Verifica se todos os campos obrigatórios foram preenchidos
     if (!name || !password || !cpf) {
@@ -83,11 +68,6 @@ export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
         error:
           "Todos os campos obrigatórios (name, password, cpf) devem ser preenchidos",
       });
-    }
-
-    // Validação de CPF
-    if (!validateCPF(cpf)) {
-      return res.status(400).json({ success: false, error: "CPF inválido" });
     }
 
     // Validação de senha
@@ -99,11 +79,23 @@ export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
       });
     }
 
-    // tira o email do postman pois ele não é mais alterado
+    // Busca o usuário no banco de dados pelo id informado na rota
+    const user = await UserModel.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+
+    // CPF enviado deve ser igual ao CPF armazenado (apenas para confirmação)
+    if (cpf !== user.cpf) {
+      return res.status(400).json({ success: false, error: "CPF inválido" });
+    }
+
+    // Atualiza somente os campos que podem ser alterados
     user.name = name;
     user.password = password;
-    user.cpf = cpf;
-    user.updatedBy = parseInt(req.user.id.toString(), 10);
+    // O CPF não é alterado, pois serve somente para confirmar a identidade.
+    // Exemplo adicional: se houver autenticação, pode-se registrar quem realizou a atualização.
+    // user.updatedBy = req.user ? Number(req.user.id) : null;
 
     await user.save();
 
@@ -114,7 +106,7 @@ export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
   }
 };
 
-// método que acaba com tudo
+// método que exclui um usuário
 export const destroyUserById = async (
   req: Request<{ id: string }>,
   res: Response
@@ -126,7 +118,6 @@ export const destroyUserById = async (
     }
 
     await user.destroy();
-
     res.status(204).send();
   } catch (error) {
     res.status(500).json("Erro interno no servidor " + error);

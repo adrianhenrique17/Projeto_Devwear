@@ -1,4 +1,4 @@
-// src/middlewares/contact.validator.ts
+
 import { body, param, ValidationChain } from "express-validator";
 
 export const validateContactCreation: ValidationChain[] = [

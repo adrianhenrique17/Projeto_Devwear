@@ -5,8 +5,7 @@ import bcrypt from "bcrypt";
 // Regex para validação de e-mail
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const SENHA_REGEX =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/; // Regex para validação de senha i exportando para outras validações
-
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/; 
 /*
   /^
   (?=.*\d)              // deve conter ao menos um dígito
@@ -44,7 +43,7 @@ UserModel.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true, // Certifique-se de que o índice seja criado apenas uma vez
+      unique: true, 
       validate: {
         notEmpty: {
           msg: "O e-mail é obrigatório",
@@ -97,7 +96,6 @@ UserModel.init(
       allowNull: true,
     },
     isActive: {
-      // Novo campo adicionado aqui
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,

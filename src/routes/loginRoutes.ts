@@ -2,8 +2,8 @@ import { Router } from "express";
 import LoginController from "../controllers/loginController";
 
 const router = Router();
-const loginController = new LoginController(); // Criando instância
+const loginController = new LoginController(); 
 
-router.post("/login", loginController.login); // Acessando o método login da instância
+router.post("/login", loginController.login); 
 
 export default router;

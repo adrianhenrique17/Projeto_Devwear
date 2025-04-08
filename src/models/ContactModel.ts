@@ -43,7 +43,7 @@ Contact.init(
       },
     },
     message: {
-      type: DataTypes.TEXT, // 🔥 Suporta textos longos
+      type: DataTypes.TEXT, 
       allowNull: false,
     },
     createdAt: {

@@ -1,9 +1,11 @@
-// src/controllers/camisa.controller.ts
 import { Request, Response } from "express";
 import Camisa from "../models/CamisaModel";
 
+
+// no projeto serão utilizados somente o listar camisas e camisas por id, porem para um futuro tem os metodos ai.
+
 class CamisaController {
-  // List all shirts
+  // Método que lista todas as camisas
   public async getAll(req: Request, res: Response): Promise<void> {
     try {
       const camisas = await Camisa.findAll();
@@ -13,7 +15,7 @@ class CamisaController {
     }
   }
 
-  // Get shirt by ID
+  // Método que lista todas por Id
   public async getById(req: Request, res: Response): Promise<void> {
     try {
       const camisa = await Camisa.findByPk(req.params.id);
@@ -27,7 +29,7 @@ class CamisaController {
     }
   }
 
-  // Create new shirt
+  // Método para criar uma nova camisa
   public async create(req: Request, res: Response): Promise<void> {
     try {
       const novaCamisa = await Camisa.create(req.body);
@@ -37,7 +39,7 @@ class CamisaController {
     }
   }
 
-  // Update shirt
+  // Método para atualizar uma camisa
   public async update(req: Request, res: Response): Promise<void> {
     try {
       const [updated] = await Camisa.update(req.body, {
@@ -54,7 +56,7 @@ class CamisaController {
     }
   }
 
-  // Delete shirt
+  // Método para atualizar uma camisa
   public async delete(req: Request, res: Response): Promise<void> {
     try {
       const deleted = await Camisa.destroy({

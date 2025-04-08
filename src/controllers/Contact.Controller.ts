@@ -1,13 +1,16 @@
 import { Request, Response } from "express";
 import Contact from "../models/ContactModel";
 
+
+// Sem put nem delete pois é um form
+
+
 class ContactController {
   // Criar um novo contato
   public async create(req: Request, res: Response): Promise<Response> {
     try {
       const { name, email, message } = req.body; // Usar "message" para alinhar com o banco de dados
 
-      // Validação básica
       if (!name || !email || !message) {
         return res
           .status(400)
@@ -22,7 +25,7 @@ class ContactController {
     }
   }
 
-  // Listar todos os contatos
+  // Método para Listar todos os contatos
   public async getAll(req: Request, res: Response): Promise<Response> {
     try {
       const contacts = await Contact.findAll();
@@ -33,7 +36,7 @@ class ContactController {
     }
   }
 
-  // Obter contato por ID
+  // Método Obter contato por ID
   public async getById(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
