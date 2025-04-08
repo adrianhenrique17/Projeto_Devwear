@@ -1,7 +1,7 @@
 import "./Camisas.css";
 import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../../components/Footer/BarraInferior";
-import ProductCard from "../../components/products/ProductCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 //importando camisas
 import camisaBD from "../../assets/Camisas/CamisaBD.png";

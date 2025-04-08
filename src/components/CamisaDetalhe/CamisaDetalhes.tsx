@@ -1,5 +1,5 @@
 import "./CamisaDetalhes.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import api from "../../api/api";
 import ProductSizeSelector from "../../components/ProductSelector/ProductSizeSelector";
@@ -16,7 +16,7 @@ interface Camisa {
   id: string;
   nome: string;
   descricao: string;
-  preco: number; 
+  preco: number;
   imagem_url: string; //puxando as imagem via nuvem cloudinary
 }
 
@@ -24,6 +24,7 @@ const CamisaDetalhes: React.FC = () => {
   const { id } = useParams();
   const [camisa, setCamisa] = useState<Camisa | null>(null);
   const [erro, setErro] = useState(false);
+  const navigate = useNavigate();
 
   //conexão com o back
   useEffect(() => {
@@ -32,10 +33,9 @@ const CamisaDetalhes: React.FC = () => {
         const response = await api.get(`/api/camisas/${id}`);
         console.log("Dados da camisa:", response.data);
 
-        
         const camisaComPrecoNumerico = {
           ...response.data,
-          preco: parseFloat(response.data.preco), 
+          preco: parseFloat(response.data.preco),
         };
 
         setCamisa(camisaComPrecoNumerico);
@@ -78,8 +78,7 @@ const CamisaDetalhes: React.FC = () => {
         <div className="ProductSelector">
           <ProductSizeSelector />
         </div>
-        <p className="camisa-preco">Preço: R$ {camisa.preco.toFixed(2)}</p>
-        <button>Comprar</button>
+        <button onClick={() => navigate("/ObrigadoPelaCompra")}>Comprar</button>
       </div>
     </div>
   );

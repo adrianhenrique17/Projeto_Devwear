@@ -17,16 +17,16 @@ const Navbar: React.FC = () => {
 
       <ul className={styles.navLinks}>
         <li>
-          <a href="#">Pagina Inicial</a>
+          <a href="/TelaPrincipal">Pagina Inicial</a>
         </li>
         <li>
-          <a href="#">Camisetas</a>
+          <a href="/camisas">Camisetas</a>
         </li>
         <li>
-          <a href="#">Sobre</a>
+          <a href="/Sobre">Sobre</a>
         </li>
         <li>
-          <a href="#">Contato</a>
+          <a href="/Contato">Contato</a>
         </li>
       </ul>
       <div className={styles.rightIcons}>

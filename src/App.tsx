@@ -9,6 +9,7 @@ import Contato from "./pages/TelaContato/Contato";
 import Compra from "./pages/TelaCompra/Compra";
 import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ObrigadoPelaCompra from "./pages/ObrigadoPelaCompra/ObrigadoPelaCompra";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
             <Route path="/Camisas" element={<Camisas />} />
             <Route path="/Sobre" element={<Sobre />} />
             <Route path="/Contato" element={<Contato />} />
+            <Route
+              path="/ObrigadoPelaCompra"
+              element={<ObrigadoPelaCompra />}
+            />
             <Route path="/Compra/:id" element={<Compra />} />
             <Route path="/EditarPerfil" element={<EditarPerfil />} />
           </Route>

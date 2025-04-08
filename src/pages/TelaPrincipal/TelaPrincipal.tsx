@@ -2,7 +2,7 @@ import "./TelaPrincipal.css";
 import React from "react";
 import NavBar from "../../components/Navbar/NavBar";
 import BarraInferior from "../../components/Footer/BarraInferior";
-import ProductCard from "../../components/products/ProductCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import Autoplay from "../../components/Autoplay/Autoplay";
 
 //import de camisas
