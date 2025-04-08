@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
-
-//componente reutilizado das atividades das trilhas
+import emailjs from "@emailjs/browser"; //lib de envio de emails com form
 
 interface FormData {
   nome: string;
@@ -24,8 +23,37 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Enviado:", form);
-    alert("Mensagem enviada!");
+
+    const templateParams = {
+      from_name: form.nome,
+      message: form.mensagem,
+      email: form.email,
+    };
+
+    emailjs
+      .send(
+        "service_h0fy2hd",
+        "template_79qmgri",
+        templateParams,
+        "cq6EXrYinR73F5F-o"
+      )
+      .then((response) => {
+        console.log(
+          "Email enviado com sucesso!",
+          response.status,
+          response.text
+        );
+        alert("Mensagem enviada!");
+        setForm({
+          nome: "",
+          email: "",
+          mensagem: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Erro ao enviar email:", error);
+        alert("Houve um erro ao enviar sua mensagem. Tente novamente.");
+      });
   };
 
   return (
