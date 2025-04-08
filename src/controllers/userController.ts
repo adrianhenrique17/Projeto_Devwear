@@ -1,11 +1,7 @@
 import { Request, Response } from "express";
 import UserModel from "../models/UserModel";
 import { SENHA_REGEX } from "../models/UserModel";
-// A função validateCPF não será utilizada neste fluxo,
-// pois vamos comparar o CPF enviado com o CPF já armazenado.
-// import { validateCPF } from "../utils/validateCPF";
 
-// Define AuthenticatedUser interface (caso for utilizar autenticação posteriormente)
 interface AuthenticatedUser {
   id: number;
   email: string;
@@ -14,7 +10,6 @@ interface AuthenticatedUser {
   isActive: boolean;
 }
 
-// Define AuthenticatedRequest interface (caso for utilizar autenticação posteriormente)
 interface AuthenticatedRequest extends Request {
   user?: AuthenticatedUser;
 }
@@ -70,7 +65,6 @@ export const updateUser = async (
       });
     }
 
-    // Validação de senha
     if (!SENHA_REGEX.test(password)) {
       return res.status(400).json({
         success: false,
@@ -79,23 +73,17 @@ export const updateUser = async (
       });
     }
 
-    // Busca o usuário no banco de dados pelo id informado na rota
     const user = await UserModel.findByPk(id);
     if (!user) {
       return res.status(404).json({ error: "Usuário não encontrado" });
     }
 
-    // CPF enviado deve ser igual ao CPF armazenado (apenas para confirmação)
     if (cpf !== user.cpf) {
       return res.status(400).json({ success: false, error: "CPF inválido" });
     }
 
-    // Atualiza somente os campos que podem ser alterados
     user.name = name;
     user.password = password;
-    // O CPF não é alterado, pois serve somente para confirmar a identidade.
-    // Exemplo adicional: se houver autenticação, pode-se registrar quem realizou a atualização.
-    // user.updatedBy = req.user ? Number(req.user.id) : null;
 
     await user.save();
 
@@ -106,7 +94,7 @@ export const updateUser = async (
   }
 };
 
-// método que exclui um usuário
+// método que destroi um usuário
 export const destroyUserById = async (
   req: Request<{ id: string }>,
   res: Response
