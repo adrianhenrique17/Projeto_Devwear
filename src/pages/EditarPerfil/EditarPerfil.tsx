@@ -30,6 +30,11 @@ const EditarPerfil = () => {
   }, [userId]);
 
   const handleUpdate = async () => {
+    if (!cpf || !nome || !senha || !confirmarSenha) {
+      alert("Por favor, preencha todos os campos!");
+      return;
+    }
+
     if (senha !== confirmarSenha) {
       alert("As senhas não coincidem!");
       return;
