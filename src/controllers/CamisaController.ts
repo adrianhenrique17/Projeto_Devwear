@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import Camisa from "../models/CamisaModel";
 
-
 // no projeto serão utilizados somente o listar camisas e camisas por id, porem para um futuro tem os metodos ai.
 
 class CamisaController {
@@ -56,7 +55,7 @@ class CamisaController {
     }
   }
 
-  // Método para atualizar uma camisa
+  // Método para deletar uma camisa
   public async delete(req: Request, res: Response): Promise<void> {
     try {
       const deleted = await Camisa.destroy({
