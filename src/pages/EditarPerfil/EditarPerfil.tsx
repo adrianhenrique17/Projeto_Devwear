@@ -11,7 +11,6 @@ const EditarPerfil = () => {
   const [nome, setNome] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
-
   const [cpf, setCpf] = useState("");
 
   useEffect(() => {
@@ -47,7 +46,7 @@ const EditarPerfil = () => {
         cpf: cpf,
       });
 
-      alert("Perfil atualizado com sucesso (nome e senha)!");
+      alert("Perfil atualizado com sucesso!");
     } catch (error) {
       console.error("Erro ao atualizar perfil:", error);
       alert("Erro ao atualizar perfil. Tente novamente.");
@@ -59,57 +58,63 @@ const EditarPerfil = () => {
       <Navbar />
       <h1 className="editar-perfil-text">Editar Perfil</h1>
       <div className="container-editar">
-        <h1>
-          <p className="cpf-validation">
-            CPF para validação - coloque xxx.xxx.xxx-xx
-          </p>
-          CPF:
-          {/* CPF não é alterado no back-end, mas precisa ser enviado */}
+        <p className="cpf-validation">
+          CPF para validação - coloque xxx.xxx.xxx-xx
+        </p>
+        {/* CPF não é alterado no back-end, mas precisa ser enviado */}
+        <div className="form-group">
+          <label htmlFor="cpf">CPF:</label>
+
           <input
-            className="cpf-input"
+            id="cpf"
+            className="form-input"
             type="text"
             value={cpf}
             onChange={(e) => setCpf(e.target.value)}
-            placeholder="CPF (não alterado)"
+            placeholder="CPF (não será alterado)"
             maxLength={14}
           />
-        </h1>
+        </div>
 
-        <h1>
-          Nome do Usuário
+        <div className="form-group">
+          <label htmlFor="nome">Nome do Usuário:</label>
           <input
-            className="name-cpf-input"
+            id="nome"
+            className="form-input"
             type="text"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
             placeholder="Seu nome de usuário"
           />
-        </h1>
+        </div>
 
-        <h1>
-          Senha:
+        <div className="form-group">
+          <label htmlFor="senha">Senha:</label>
           <input
-            className="senha-input"
+            id="senha"
+            className="form-input"
             type="password"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Senha"
           />
-        </h1>
+        </div>
 
-        <h1>
-          Confirmar Senha:
+        <div className="form-group">
+          <label htmlFor="confirmarSenha">Confirmar Senha:</label>
           <input
-            className="senha-input"
+            id="confirmarSenha"
+            className="form-input"
             type="password"
             value={confirmarSenha}
             onChange={(e) => setConfirmarSenha(e.target.value)}
             placeholder="Confirmar Senha"
           />
-          <button className="btn-editar" onClick={handleUpdate}>
-            Atualizar
-          </button>
-        </h1>
+        </div>
+
+        <button className="btn-editar" onClick={handleUpdate}>
+          Atualizar
+        </button>
       </div>
       <Footer />
     </div>

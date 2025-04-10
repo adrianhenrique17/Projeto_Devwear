@@ -4,7 +4,6 @@ import Footer from "../../components/Footer/BarraInferior";
 
 // import dos fundadores
 import adrian from "../../assets/Fundadores/Adrian.png";
-import eduardo from "../../assets/Fundadores/Eduardo.png";
 
 const Sobre = () => {
   return (
@@ -33,8 +32,6 @@ const Sobre = () => {
 
       <div className="fundadores">
         <img src={adrian} alt="adrian" className="fundador-adrian" />
-
-        <img src={eduardo} alt="eduardo" className="fundador-eduardo" />
       </div>
       <Footer />
     </div>

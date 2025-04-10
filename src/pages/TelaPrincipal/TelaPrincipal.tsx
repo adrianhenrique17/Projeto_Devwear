@@ -37,20 +37,20 @@ const TelaPrincipal = () => {
         />
         <ProductCard
           id={"3"}
-          image={camisaCommit}
+          image={camisaComputaria}
           title="Camisa Devwear Commit"
           description="Camisa nova da coleção."
-          price="R$70,00"
+          price="R$90,00"
         />
       </div>
 
       <div className="Inferior-Itens">
         <ProductCard
           id={"4"}
-          image={camisaComputaria}
+          image={camisaCommit}
           title="Camisa Devwear Computaria"
           description="Camisa nova da coleção"
-          price="R$90,00"
+          price="R$70,00"
         />
         <ProductCard
           id={"5"}

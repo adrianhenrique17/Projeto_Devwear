@@ -74,6 +74,7 @@ const CamisaDetalhes: React.FC = () => {
       <div className="camisa-info">
         <h1 className="nome-camisa">{camisa.nome}</h1>
         <p className="caminho-text">/TelaPrincipal/camisetas/{id}</p>
+        <h3 className="preço">R${camisa.preco},00</h3>
         <p className="descricao-compra-text">{camisa.descricao}</p>
         <div className="ProductSelector">
           <ProductSizeSelector />

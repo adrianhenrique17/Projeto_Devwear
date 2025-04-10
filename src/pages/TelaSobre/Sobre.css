@@ -36,10 +36,10 @@
 
 .Fundadores-text {
   margin-top: 20px;
-  text-align: justify;
+  align-items: center;
   font-size: 40px;
   font-weight: 300;
-  padding: 20px;
+  margin-left: 229px;
   font-style: italic;
 }
 

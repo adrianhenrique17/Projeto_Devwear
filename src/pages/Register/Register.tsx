@@ -109,16 +109,30 @@ const Register = () => {
       }
     } catch (error: unknown) {
       console.error("Erro ao registrar:", error);
-      if (
-        error instanceof Error &&
-        (error as import("axios").AxiosError).response
-      ) {
-        console.error(
-          "Erro do backend:",
-          (error as import("axios").AxiosError).response?.data
-        );
+
+      if (error instanceof Error) {
+        const axiosError = error as import("axios").AxiosError;
+
+        if (axiosError.response) {
+          // Erro retornado pelo backend
+          const backendError =
+            (axiosError.response.data as { error?: string })?.error ||
+            window.alert("Registros já constam na base de dados");
+          setError(backendError || "");
+          window.alert(`Tente novamente ou mais tarde`);
+        } else if (axiosError.request) {
+          setError("");
+          window.alert(
+            "Não foi possível conectar ao servidor. Tente novamente mais tarde."
+          );
+        } else {
+          setError("Ocorreu um erro inesperado. Tente novamente.");
+          window.alert("Ocorreu um erro inesperado. Tente novamente.");
+        }
+      } else {
+        setError("Erro desconhecido. Tente novamente.");
+        window.alert("Erro desconhecido. Tente novamente.");
       }
-      setError("Erro ao conectar ao servidor. Tente novamente mais tarde.");
     }
   };
 
