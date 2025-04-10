@@ -75,5 +75,11 @@ Teve várias alterações mas o esqueleto segue o do figma
 https://www.figma.com/design/90FtIBJ0zk4cplbx5G8jPf/Untitled?node-id=0-1&t=JtIzSC1c8G1UERhv-1
 
 
-#SEGUE ABAIXO O EXEMPLO DO VISUAL DO SITE
+#SEGUE ABAIXO
+
+https://github.com/user-attachments/assets/58e42adc-f4e5-4564-ae90-12429644b465
+
+ O EXEMPLO DO VISUAL DO SITE
+
+
 
