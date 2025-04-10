@@ -3,9 +3,9 @@ import sequelize from "../config/database";
 import bcrypt from "bcrypt";
 
 // Regex para validação de e-mail
-const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+export const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const SENHA_REGEX =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/; 
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
 /*
   /^
   (?=.*\d)              // deve conter ao menos um dígito
@@ -43,7 +43,7 @@ UserModel.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true, 
+      unique: true,
       validate: {
         notEmpty: {
           msg: "O e-mail é obrigatório",
