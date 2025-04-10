@@ -2,17 +2,26 @@ import { Router } from "express";
 import ContactController from "../controllers/Contact.Controller";
 import {
   validateContactCreation,
-  validateContactId, 
+  validateContactId,
 } from "../middleware/contact.validator";
+import { authMiddleware } from "../middleware/authMiddleware";
 
 const router = Router();
 
+router.get("contact/form", authMiddleware, ContactController.getAll);
 
-router.get("contact/form", ContactController.getAll);
+router.get(
+  "contact/form/:id",
+  validateContactId,
+  authMiddleware,
+  ContactController.getById
+);
 
-router.get("contact/form/:id", validateContactId, ContactController.getById);
-
-
-router.post("/contact/form", validateContactCreation, ContactController.create);
+router.post(
+  "/contact/form",
+  validateContactCreation,
+  authMiddleware,
+  ContactController.create
+);
 
 export default router;
