@@ -1,25 +1,45 @@
-import express from "express"
+import express from "express";
 import sequelize from "./config/database";
-import registroRoutes from "./routes/registroRoutes"
-import camisetasRoutes from "./routes/camisetasRoutes";
-import authRoutes from "./routes/authRoutes";
+import userRoutes from "./routes/userRoutes";
+import camisasRoutes from "./routes/camisasRoutes";
+import loginRoutes from "./routes/loginRoutes";
+import contactRoutes from "./routes/contactRoutes";
+import "dotenv/config";
 
+//server
 
 const app = express();
-
+const cors = require("cors");
 const port = 3000;
 
-app.get("/",(req,res) => {
-    res.send("Hello World!");
-})
+/* o cors não deixa o navegador bloquear o front de acessar o back, 
+ai vc fala qual dominio ta tentando acessar e ele permite */
 
-app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-app.use(registroRoutes)
+app.use(express.json()); //middlware
+app.use("/api", userRoutes);
+app.use("/api", camisasRoutes);
+app.use("/api", loginRoutes);
+app.use("/api", contactRoutes);
 
-app.use(camisetasRoutes)
+// sync database
+sequelize
+  .sync({ alter: true })
+  .then(() => {
+    console.log("database foi sincronizado com sucesso");
+  })
+  .catch((error) => {
+    console.log("Moio a parada", error);
+  });
 
-sequelize.sync({alter: true}).then(() => {console.log ("O database foi sincronizado com sucesso")}). catch ((error)=> {console.log ("deu ruim")})
-
-app.listen(port, () => {console.log ("Servidor rodando na porta 3000 ",port)});
-
+app.listen(port, () => {
+  console.log("Server running on port", port);
+});
+export default app;
