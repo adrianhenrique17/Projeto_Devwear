@@ -8,6 +8,7 @@ import api from "../../api/api";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const ExecuteLogin = async () => {
@@ -18,10 +19,8 @@ const Login = () => {
       });
       if (response.data.success) {
         console.log("Login bem-sucedido!");
-
         localStorage.setItem("authToken", response.data.token);
         localStorage.setItem("userId", response.data.user.id);
-
         window.location.href = "/TelaPrincipal";
       }
     } catch (error) {
@@ -42,12 +41,10 @@ const Login = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (!emailRegex.test(email)) {
       setError("Por favor, insira um e-mail válido.");
       return;
     }
-
     setError("");
     ExecuteLogin();
   };
@@ -80,14 +77,22 @@ const Login = () => {
               />
             </div>
 
-            <div className="mt-2">
+            <div className="mt-2 position-relative">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="form-control bg-secondary bg-opacity-25 text-dark"
+                className="form-control bg-secondary bg-opacity-25 text-dark pe-5"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="toggle-password-btn"
+                style={{ zIndex: 10 }}
+              >
+                {showPassword ? "😌" : "👁️"}
+              </button>
             </div>
 
             <div className="mt-4">

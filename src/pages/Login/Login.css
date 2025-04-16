@@ -142,3 +142,22 @@
   text-align: left;
   width: 100%;
 }
+
+.login-page .toggle-password-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  z-index: 10;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.login-page .toggle-password-btn:hover {
+  color: #1454f5;
+}

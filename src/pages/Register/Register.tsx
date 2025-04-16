@@ -4,7 +4,7 @@ import "../../pages/Register/Register.css";
 import logo2 from "../../assets/devwearball.png";
 import { Link } from "react-router-dom";
 import api from "../../api/api";
-import InputMask from "react-input-mask"; // lib de Cpf
+import InputMask from "react-input-mask"; // lib de Cpf mask
 
 interface FormErrors {
   name?: string;
@@ -28,9 +28,31 @@ const Register = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [error, setError] = useState("");
 
+  //função valida cpf de vdd
   const validateCPF = (cpf: string): boolean => {
-    const cleanedCPF = cpf.replace(/\D/g, "");
-    return cleanedCPF.length === 11;
+    const cleanedCPF = cpf.replace(/[^\d]/g, "");
+
+    if (cleanedCPF.length !== 11) return false;
+    if (/^(\d)\1{10}$/.test(cleanedCPF)) return false;
+
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+      sum += parseInt(cleanedCPF.charAt(i)) * (10 - i);
+    }
+    let firstVerifier = 11 - (sum % 11);
+    if (firstVerifier >= 10) firstVerifier = 0;
+
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+      sum += parseInt(cleanedCPF.charAt(i)) * (11 - i);
+    }
+    let secondVerifier = 11 - (sum % 11);
+    if (secondVerifier >= 10) secondVerifier = 0;
+
+    return (
+      firstVerifier === parseInt(cleanedCPF.charAt(9)) &&
+      secondVerifier === parseInt(cleanedCPF.charAt(10))
+    );
   };
 
   const validateEmail = (email: string): boolean => {
@@ -114,15 +136,15 @@ const Register = () => {
         const axiosError = error as import("axios").AxiosError;
 
         if (axiosError.response) {
-          // Erro retornado pelo backend
           const backendError =
             (axiosError.response.data as { error?: string })?.error ||
-            window.alert("Registros já constam na base de dados");
+            alert("Registros já constam na base de dados");
           setError(backendError || "");
-          window.alert(`Tente novamente ou mais tarde`);
+          alert(`Tente novamente ou mais tarde`);
+          return;
         } else if (axiosError.request) {
           setError("");
-          window.alert(
+          alert(
             "Não foi possível conectar ao servidor. Tente novamente mais tarde."
           );
         } else {
@@ -257,7 +279,7 @@ const Register = () => {
               </button>
             </div>
 
-            <div className="links">
+            <div className="links mt-3">
               <span>Já tem uma conta? </span>
               <Link to="/"> Logue aqui!</Link>
             </div>
