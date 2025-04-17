@@ -1,0 +1,17 @@
+.tela-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 2rem; /* opcional */
+}
+
+.footer {
+  background-color: #1454f5;
+  color: black;
+  padding: 1.5rem;
+  text-align: center;
+}

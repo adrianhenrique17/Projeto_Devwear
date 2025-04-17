@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductSizeSelector.css";
 
-//usando a mesma logica da aula da claudia sobre hooks para aumentar e diminuir
+interface Props {
+  onChange: (size: string, quantity: number) => void;
+}
 
-const ProductSizeSelector: React.FC = () => {
-  const [selectedSize, setselectedSize] = useState<string>("P"); 
-  const [quantity, setQuantity] = useState<number>(1); 
+const ProductSizeSelector: React.FC<Props> = ({ onChange }) => {
+  const [selectedSize, setSelectedSize] = useState<string>("P");
+  const [quantity, setQuantity] = useState<number>(1);
   const sizes = ["P", "M", "G", "GG"];
 
   const handleSizeChange = (size: string) => {
-    setselectedSize(size);
+    setSelectedSize(size);
   };
 
-  
   const incrementQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -21,10 +22,14 @@ const ProductSizeSelector: React.FC = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : prev));
   };
 
+  useEffect(() => {
+    onChange(selectedSize, quantity);
+  }, [selectedSize, quantity, onChange]);
+
   return (
     <div>
       <p>Guia de medidas</p>
-      <h4 className="tamanho-select-text">Tamanho: {selectedSize} </h4>
+      <h4 className="tamanho-select-text">Tamanho: {selectedSize}</h4>
       <div>
         {sizes.map((size) => (
           <button
@@ -36,8 +41,7 @@ const ProductSizeSelector: React.FC = () => {
               textAlign: "center",
             }}
           >
-            {" "}
-            {size}{" "}
+            {size}
           </button>
         ))}
       </div>

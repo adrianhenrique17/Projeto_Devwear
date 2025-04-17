@@ -9,7 +9,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; 
+  width: 100%;
   z-index: 1000; /* Mantém a navbar sobre outros elementos */
 }
 
@@ -31,9 +31,9 @@
   gap: 50px;
   position: relative;
   right: -50px; /* mover as letras para direira */
-  top: 8px; 
+  top: 8px;
   font-family: "Inter";
-  font-weight: 2; 
+  font-weight: 2;
   flex-grow: 2; /* prop do flexbox , o elemento cresce para ocupar o espaco dispo.  */
 }
 

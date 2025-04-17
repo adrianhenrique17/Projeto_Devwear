@@ -3,7 +3,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
   flex-direction: column;
 }
 
@@ -32,18 +31,17 @@ body {
   gap: 30px;
   position: relative;
   text-align: center;
-  top: 5px; 
-  font-weight: 3; 
+  top: 5px;
+  font-weight: 3;
   flex-grow: 2;
-  justify-content: center; 
+  justify-content: center;
 }
-
 
 .links a {
   color: rgb(0, 0, 0);
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .links a:hover {
-  color: rgb(255, 255, 255); 
+  color: rgb(255, 255, 255);
 }

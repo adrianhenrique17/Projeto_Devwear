@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../api/api";
 import ProductSizeSelector from "../../components/ProductSelector/ProductSizeSelector";
 import notfound from "../../assets/NOTFOUND/post_thumbnail-77d8f2a95f2f41b5863f3fba5a261d7e.jpeg";
+import { useCart } from "../../contexts/CartContext";
 
 const ScrollToTop: React.FC = () => {
   useEffect(() => {
@@ -17,27 +18,26 @@ interface Camisa {
   nome: string;
   descricao: string;
   preco: number;
-  imagem_url: string; //puxando as imagem via nuvem cloudinary
+  imagem_url: string;
 }
 
 const CamisaDetalhes: React.FC = () => {
   const { id } = useParams();
   const [camisa, setCamisa] = useState<Camisa | null>(null);
   const [erro, setErro] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<string>("P");
+  const [quantity, setQuantity] = useState<number>(1);
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
-  //conexão com o back
   useEffect(() => {
     const fetchCamisa = async () => {
       try {
         const response = await api.get(`/api/camisas/${id}`);
-        console.log("Dados da camisa:", response.data);
-
         const camisaComPrecoNumerico = {
           ...response.data,
           preco: parseFloat(response.data.preco),
         };
-
         setCamisa(camisaComPrecoNumerico);
         setErro(false);
       } catch (error) {
@@ -48,6 +48,36 @@ const CamisaDetalhes: React.FC = () => {
 
     fetchCamisa();
   }, [id]);
+
+  const handleComprar = () => {
+    if (!camisa) return;
+
+    addToCart({
+      id: camisa.id,
+      nome: camisa.nome,
+      precoUnit: camisa.preco,
+      imagem_url: camisa.imagem_url,
+      tamanho: selectedSize,
+      quantidade: quantity,
+    });
+
+    navigate("/carrinho");
+  };
+
+  const handleAdicionarAoCarrinho = () => {
+    if (!camisa) return;
+
+    addToCart({
+      id: camisa.id,
+      nome: camisa.nome,
+      precoUnit: camisa.preco,
+      imagem_url: camisa.imagem_url,
+      tamanho: selectedSize,
+      quantidade: quantity,
+    });
+
+    alert("Produto adicionado ao carrinho!");
+  };
 
   if (erro) {
     return (
@@ -77,9 +107,19 @@ const CamisaDetalhes: React.FC = () => {
         <h3 className="preço">R${camisa.preco},00</h3>
         <p className="descricao-compra-text">{camisa.descricao}</p>
         <div className="ProductSelector">
-          <ProductSizeSelector />
+          <ProductSizeSelector
+            onChange={(size, qty) => {
+              setSelectedSize(size);
+              setQuantity(qty);
+            }}
+          />
         </div>
-        <button onClick={() => navigate("/ObrigadoPelaCompra")}>Comprar</button>
+        <div style={{ display: "flex", gap: "10px", marginTop: "15px" }}>
+          <button onClick={handleComprar}>Comprar</button>
+          <button onClick={handleAdicionarAoCarrinho}>
+            🛒 Adicionar ao Carrinho
+          </button>
+        </div>
       </div>
     </div>
   );

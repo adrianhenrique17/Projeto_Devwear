@@ -37,7 +37,7 @@ const TelaPrincipal = () => {
         <ProductCard
           id={"3"}
           image={camisaComputaria}
-          title="Camisa Devwear Commit"
+          title="Camisa Devwear Computaria"
           description="Camisa nova da coleção."
           price="R$90,00"
         />
@@ -47,7 +47,7 @@ const TelaPrincipal = () => {
         <ProductCard
           id={"4"}
           image={camisaCommit}
-          title="Camisa Devwear Computaria"
+          title="Camisa Devwear Commit"
           description="Camisa nova da coleção"
           price="R$70,00"
         />
