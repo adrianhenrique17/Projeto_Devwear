@@ -87,7 +87,6 @@ const EditarPerfil = () => {
       <Navbar />
       <h1 className="editar-perfil-text">Editar Perfil</h1>
       <div className="container-editar">
-        {/* Seção CPF */}
         <div className="form-group">
           <label htmlFor="cpf">
             CPF <span className="cpf-note">(usado apenas para validação)</span>:
@@ -110,7 +109,6 @@ const EditarPerfil = () => {
 
         <hr className="form-divider" />
 
-        {/* Seção Nome */}
         <div className="form-group">
           <label htmlFor="nome">Nome do Usuário:</label>
           <input
@@ -126,7 +124,6 @@ const EditarPerfil = () => {
 
         <hr className="form-divider" />
 
-        {/* Seção Senha */}
         <div className="form-group">
           <label htmlFor="senha">Senha:</label>
           <input

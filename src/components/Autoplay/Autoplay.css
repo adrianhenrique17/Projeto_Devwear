@@ -55,6 +55,6 @@
 
 .banner-image {
   width: 120%;
-  max-height: 500px; /* Ajuste conforme necessário */
-  object-fit: cover; /* Mantém a proporção da imagem sem distorcer */
+  max-height: 500px;
+  object-fit: cover;
 }

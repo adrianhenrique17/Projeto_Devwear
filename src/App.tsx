@@ -19,8 +19,6 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        {" "}
-        {/* <- agora o CartProvider envolve TODO o BrowserRouter */}
         <BrowserRouter>
           <Routes>
             {/* Rotas Públicas */}

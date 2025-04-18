@@ -4,7 +4,6 @@ import BarraInferior from "../../components/Footer/BarraInferior";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Autoplay from "../../components/Autoplay/Autoplay";
 
-//import de camisas
 import camisaBD from "../../assets/Camisas/CamisaBD.png";
 import camisaBios from "../../assets/Camisas/CamisaBios.png";
 import camisaCommit from "../../assets/Camisas/CamisaCommit.png";

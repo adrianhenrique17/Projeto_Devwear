@@ -11,7 +11,6 @@ const FormularioEntrega = () => {
 
   const handleSubmit = (e: HandleSubmitEvent) => {
     e.preventDefault();
-    // Você pode salvar a formaPagamento no contexto, localStorage, ou enviar para o backend
     navigate("/ObrigadoPelaCompra");
   };
 

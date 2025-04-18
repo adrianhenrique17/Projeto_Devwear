@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../../components/Footer/BarraInferior";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
-//importando camisas
 import camisaBD from "../../assets/Camisas/CamisaBD.png";
 import camisaBios from "../../assets/Camisas/CamisaBios.png";
 import camisaCommit from "../../assets/Camisas/CamisaCommit.png";

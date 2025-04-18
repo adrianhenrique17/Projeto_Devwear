@@ -2,7 +2,6 @@ import "./Sobre.css";
 import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../../components/Footer/BarraInferior";
 
-// import dos fundadores
 import adrian from "../../assets/Fundadores/Adrian.png";
 
 const Sobre = () => {

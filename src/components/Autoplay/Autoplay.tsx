@@ -1,9 +1,7 @@
-import * as React from "react";
 import "./Autoplay.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
-//banners
 import bannerComputaria from "../../assets/Banners/BannerComputaria.jpg";
 import BannerBancodeDados from "../../assets/Banners/BannerBancodeDados.jpg";
 import BannerCommit from "../../assets/Banners/BannerCommit.jpg";

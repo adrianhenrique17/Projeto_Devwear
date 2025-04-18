@@ -1,7 +1,6 @@
 import "./DeletarPerfil.css";
 import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../../components/Footer/BarraInferior";
-import logo from "../../assets/DevWerarLogo150x150.jpg";
 
 const DeletarPerfil = () => {
   return (

@@ -1,6 +1,6 @@
 .img-obg {
   margin-top: 20px;
-  width: 1260px; /* Novo tamanho da largura */
-  height: 600px; /* Novo tamanho da altura */
-  object-fit: cover; /* Ajusta a imagem para caber no tamanho definido */
+  width: 1260px;
+  height: 600px;
+  object-fit: cover;
 }

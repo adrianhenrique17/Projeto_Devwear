@@ -1,4 +1,3 @@
-// slr, faz automático
 type btnProps = {
   texto: string;
 };
