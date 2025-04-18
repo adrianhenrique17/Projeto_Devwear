@@ -2,7 +2,6 @@ import { updateUser } from "../../controllers/UserController";
 import { Request, Response } from "express";
 import UserModel, { SENHA_REGEX } from "../../models/UserModel";
 
-// Mock do UserModel e da regex
 jest.mock("../../models/UserModel", () => ({
   __esModule: true,
   default: {
@@ -34,7 +33,7 @@ describe("updateUser - Validação de campos obrigatórios", () => {
     const req = {
       params: { id: "1" },
       body: {
-        name: "João", // faltando senha e cpf
+        name: "João",
       },
     } as Request<{ id: string }>;
 

@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import Camisa from "../models/CamisaModel";
 
-// no projeto serão utilizados somente o listar camisas e camisas por id, porem para um futuro tem os metodos ai.
-
 class CamisaController {
   // Método que lista todas as camisas
   public async getAll(req: Request, res: Response): Promise<void> {

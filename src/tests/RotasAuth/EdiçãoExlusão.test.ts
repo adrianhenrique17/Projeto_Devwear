@@ -4,7 +4,6 @@ import { updateUser, destroyUserById } from "../../controllers/UserController";
 import Camisa from "../../models/CamisaModel";
 import UserModel from "../../models/UserModel";
 
-// Mocks
 jest.mock("../../models/CamisaModel");
 jest.mock("../../models/UserModel");
 
@@ -24,9 +23,6 @@ describe("Validação de edição/remoção de recursos inexistentes", () => {
     jest.clearAllMocks();
   });
 
-  // ========================
-  // CamisaController
-  // ========================
   describe("CamisaController", () => {
     it("deve retornar 404 ao tentar atualizar uma camisa inexistente", async () => {
       const req = {
@@ -55,8 +51,6 @@ describe("Validação de edição/remoção de recursos inexistentes", () => {
       expect(res.json).toHaveBeenCalledWith({ error: "Camisa não encontrada" });
     });
   });
-
-  // userController
 
   describe("userController", () => {
     it("deve retornar 404 ao tentar atualizar um usuário inexistente", async () => {

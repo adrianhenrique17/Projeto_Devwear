@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
 import Contact from "../models/ContactModel";
 
-
-// Sem put nem delete pois é um form
-
-
 class ContactController {
   // Criar um novo contato
   public async create(req: Request, res: Response): Promise<Response> {
