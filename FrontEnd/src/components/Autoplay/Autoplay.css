@@ -1,0 +1,60 @@
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  height: 200px;
+  max-height: 400px;
+}
+
+.number-slide1 {
+  background: #ffffff00;
+  background: linear-gradient(128deg, #1454f5 50%, #1454f5 20%);
+}
+
+.number-slide2 {
+  background: #ffffff00;
+  background: linear-gradient(128deg, #1454f5 50%, #1454f5 20%);
+}
+
+.number-slide3 {
+  background: #ffffff00;
+  background: linear-gradient(128deg, #1454f5 50%, #1454f5 20%);
+}
+
+.number-slide4 {
+  background: #ffffff00;
+  background: linear-gradient(128deg, #1454f5 50%, #1454f5 20%);
+}
+
+.number-slide5 {
+  background: #1454f5;
+  background: linear-gradient(
+    128deg,
+    rgba(255, 64, 156, 1) 0%,
+    rgba(255, 63, 63, 1) 100%
+  );
+}
+
+.number-slide6 {
+  background: rgb(64, 76, 255);
+  background: linear-gradient(
+    128deg,
+    rgba(64, 76, 255, 1) 0%,
+    rgba(174, 63, 255, 1) 100%
+  );
+}
+
+.keen-slider {
+  margin-top: 70px;
+}
+
+.banner-image {
+  width: 120%;
+  max-height: 500px;
+  object-fit: cover;
+}

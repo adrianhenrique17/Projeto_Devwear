@@ -1,0 +1,23 @@
+.text-principal {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.camisetas-cima {
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+.camisetas-meio {
+  display: flex;
+  justify-content: center;
+  margin-top: -150px;
+}
+.camisetas-baixo {
+  display: flex;
+  margin-top: -150px;
+  justify-content: center;
+}

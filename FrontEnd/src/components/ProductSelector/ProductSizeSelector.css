@@ -1,0 +1,40 @@
+.tamanho-select-text {
+  font-size: 15px;
+  font-weight: 300;
+  font-style: oblique;
+  color: #1454f5;
+}
+
+.btn-selector {
+  padding: 5px 10px;
+  font-size: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.quantidade-btn {
+  margin-top: -15px;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.quantidade-text {
+  margin-top: 20px;
+}
+
+.decrement-button {
+  padding: 5px 10px;
+  font-size: 10px;
+  width: 25px;
+  height: 25px;
+  color: black;
+}
+
+.increment-buttom {
+  color: black;
+  padding: 5px 10px;
+  font-size: 10px;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
