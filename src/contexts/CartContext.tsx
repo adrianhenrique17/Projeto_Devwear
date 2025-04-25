@@ -6,6 +6,8 @@ import {
   ReactNode,
 } from "react";
 
+//config do carrinho
+
 interface CartItem {
   id: string;
   nome: string;
