@@ -1,0 +1,72 @@
+.navbar {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: #1454f5;
+  padding: 8px 20px;
+  height: 70px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Garante que ocupe toda a largura */
+  z-index: 1000; /* Mantém a navbar sobre outros elementos */
+}
+
+.logo {
+  padding: 10px 10px;
+}
+
+.logo img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+  transform: rotate(360deg);
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  position: relative;
+  right: -50px; /* mover as letras para direira */
+  top: 5px; /* mover as letras para baixo */
+  font-family: "Inter";
+  font-weight: 2; /* grossura da font */
+  flex-grow: 2; /* prop do flexbox , o elemento cresce para ocupar o espaco dispo.  */
+}
+
+.navLinks li {
+  display: inline;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.navLinks a:hover {
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.rightIcons {
+  margin-left: 38%;
+  display: flex;
+  gap: 20px;
+  align-items: end;
+}

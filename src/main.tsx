@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import "./styles/global.css";
 
 // deixa no main por ele no dom ele tem mais alto nivel
 // ele renderiza as rotas que estão em app
