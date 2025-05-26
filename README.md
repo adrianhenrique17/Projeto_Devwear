@@ -1,6 +1,10 @@
 # Projeto_Devwear
 Repositório para envio do projeto do 3° periodo, projeto que envolve as aulas de back-end, front-end e programação intermediária.
 
+https://devwear-pub-llj6.vercel.app/
+Link para visualização do site. Opção de detalhes das camisas e Carrinho sem funcionalidades pois necessita do Backend e banco de dados que foi
+retirado no deploy, pois precisa de uma VM.
+
 # Instalação do Projeto
 Os requisitos para execução do projeto, são: Ter o Dbeaver (Ou DB de preferencia), Xammp para inicializar o MySql, Postman ( fazer teste das rotas do back). Inicializar os dois projetos
 backend e front end em Ide's sepadas. Instalação dos pacotes - NPM INSTALL em ambos e NPM RUN DEV para iniciar o projeto. no Backend provavelmente ao iniciar ele gere um erro no node modules, mas vc só precisa alterar um valor para STRING e ele
